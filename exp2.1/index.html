@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhanced Text Generator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Dynamic Text Generator</h1>
+
+    <input type="text" id="userInput" placeholder="Type something..." />
+
+    <div class="controls">
+      <label for="colorPicker">Font Color:</label>
+      <input type="color" id="colorPicker" value="#333333" />
+
+      <label for="fontSize">Font Size:</label>
+      <select id="fontSize">
+        <option value="16px">16px</option>
+        <option value="20px">20px</option>
+        <option value="24px">24px</option>
+        <option value="32px">32px</option>
+      </select>
+
+      <label for="fontFamily">Font Style:</label>
+      <select id="fontFamily">
+        <option value="Arial">Arial</option>
+        <option value="'Courier New'">Courier New</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Verdana">Verdana</option>
+      </select>
+    </div>
+
+    <button onclick="generateText()">Generate</button>
+
+    <div class="output" id="outputText"></div>
+  </div>
+
+  <script>
+    function generateText() {
+      const input = document.getElementById("userInput").value;
+      const color = document.getElementById("colorPicker").value;
+      const size = document.getElementById("fontSize").value;
+      const font = document.getElementById("fontFamily").value;
+      const output = document.getElementById("outputText");
+
+      if (input.trim() !== "") {
+        output.innerHTML = input;
+        output.style.color = color;
+        output.style.fontSize = size;
+        output.style.fontFamily = font;
+      } else {
+        output.innerHTML = "Please enter some text.";
+        output.style.color = "#444";
+        output.style.fontSize = "16px";
+        output.style.fontFamily = "Arial";
+      }
+    }
+  </script>
+</body>
+</html>
